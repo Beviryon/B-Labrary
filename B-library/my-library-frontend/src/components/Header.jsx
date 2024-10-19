@@ -7,6 +7,10 @@ import rightLogo from '../assets/logo1.jpg';
 const Header = () => {
   const { cart } = useCart();
   const [navOpen, setNavOpen] = useState(false);
+  
+  // Récupérer les informations de l'utilisateur connecté
+  const userData = JSON.parse(localStorage.getItem('currentUser'));
+  const profilePicture = userData?.profilePicture || 'url_to_default_picture'; // Remplacez par l'URL d'une image par défaut
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
@@ -29,8 +33,18 @@ const Header = () => {
               Classeur <span className="cart-count">{cart.length}</span>
             </Link>
           </li>
+          <li><Link to="/profile">Profil</Link></li>
         </ul>
       </nav>
+
+      {/* Photo de Profil */}
+      {userData && (
+        <div className="profile-icon">
+          <Link to="/profile">
+            <img src={profilePicture} alt="Profile" className="navbar-profile-picture" />
+          </Link>
+        </div>
+      )}
 
       {/* Right Logo */}
       <div className="logo right-logo">

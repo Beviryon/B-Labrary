@@ -1,0 +1,92 @@
+/* Conteneur principal de la page d'inscription */
+.register-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5; /* Couleur de fond neutre */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Conteneur du formulaire d'inscription */
+  .register-form-container {
+    background-color: #ffffff; /* Fond blanc pour le formulaire */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    width: 100%;
+    max-width: 400px; /* Largeur maximale du formulaire */
+  }
+  
+  /* Style du titre du formulaire */
+  .register-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  /* Groupes de champs de formulaire */
+  .register-form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Label des champs */
+  .register-form-group label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  /* Champs de saisie */
+  .register-form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .register-form-group input:focus {
+    border-color: #74ebd5; /* Couleur de bordure lorsqu'on clique sur le champ */
+    outline: none;
+  }
+  
+  /* Bouton d'inscription */
+  .register-submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #74ebd5;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-submit-button:hover {
+    background-color: #57c5a9; /* Changement de couleur au survol */
+  }
+  
+  /* Lien pour rediriger vers la page de connexion */
+  .register-page p {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+  }
+  
+  .register-page a {
+    color: #74ebd5;
+    text-decoration: none;
+  }
+  
+  .register-page a:hover {
+    text-decoration: underline;
+  }
+  
