@@ -1,35 +1,33 @@
-/* UserProfile.css */
-
 /* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5; /* Couleur de fond douce */
+    background-color: #f0f2f5; 
     margin: 0;
     padding: 0;
 }
 
 /* Profile Page Container */
 .profile-page {
-    max-width: 800px; /* Largeur maximale de la page de profil */
-    margin: 40px auto; /* Centrage horizontal et marge supérieure */
-    padding: 20px; /* Espacement interne */
-    background-color: white; /* Fond blanc pour le profil */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre portée douce */
+    max-width: 800px;
+    margin: 40px auto; 
+    padding: 20px; 
+    background-color: white; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
 /* Title */
 .profile-page h2 {
-    text-align: center; /* Centrage du titre */
-    color: #333; /* Couleur du texte */
-    margin-bottom: 30px; /* Marge inférieure */
+    text-align: center; 
+    color: #333; 
+    margin-bottom: 30px; 
 }
 
 /* Profile Info Section */
 .profile-info {
-    display: flex; /* Utilisation de flexbox pour l'alignement */
-    align-items: center; /* Alignement vertical */
-    gap: 20px; /* Espacement entre les éléments */
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
 }
 
 /* Profile Picture */
@@ -88,17 +86,17 @@ button {
 
 /* Button Hover */
 button:hover {
-    background-color: #004494; /* Couleur de fond au survol */
+    background-color: #004494; 
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .profile-info {
-        flex-direction: column; /* Disposition en colonne sur les écrans plus petits */
-        align-items: flex-start; /* Alignement à gauche */
+        flex-direction: column; 
+        align-items: flex-start; 
     }
 
     .profile-picture {
-        margin-bottom: 20px; /* Marge inférieure pour la photo de profil */
+        margin-bottom: 20px; 
     }
 }

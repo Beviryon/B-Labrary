@@ -1,16 +1,27 @@
-import { useState } from 'react';
-import './UserProfile.css'; 
+import { useState, useEffect } from 'react';
+import './UserProfile.css';
+
 const ProfilePage = () => {
-    const userData = JSON.parse(localStorage.getItem('currentUser'));
+    const [userData, setUserData] = useState(() => JSON.parse(localStorage.getItem('currentUser')));
     const [name, setName] = useState(userData?.name || '');
     const [email, setEmail] = useState(userData?.email || '');
     const [profilePicture, setProfilePicture] = useState(userData?.profilePicture || '');
 
+    // Utilisation de useEffect pour actualiser automatiquement les données de l'utilisateur
+    useEffect(() => {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            setUserData(currentUser);
+            setName(currentUser.name);
+            setEmail(currentUser.email);
+            setProfilePicture(currentUser.profilePicture);
+        }
+    }, []); // Le tableau vide signifie que cela ne s'exécute qu'une fois au montage
+
     if (!userData) {
-        return <p>Aucun utilisateur connecté. Veuillez vous connecter.</p>; // Gérer le cas où il n'y a pas d'utilisateur connecté
+        return <p>Aucun utilisateur connecté. Veuillez vous connecter.</p>;
     }
 
-    // Obtenir le nombre de livres dans le classeur de l'utilisateur
     const userBooks = JSON.parse(localStorage.getItem('users')).find(user => user.email === userData.email)?.cart || [];
     const numberOfBooks = userBooks.length;
 
@@ -36,6 +47,12 @@ const ProfilePage = () => {
         // Mettre à jour l'utilisateur courant dans le localStorage
         localStorage.setItem('currentUser', JSON.stringify(updatedUser));
 
+        // Actualiser l'état avec les nouvelles données
+        setUserData(updatedUser);  // Mettre à jour les données de l'utilisateur après la sauvegarde
+        setName(updatedUser.name);
+        setEmail(updatedUser.email);
+        setProfilePicture(updatedUser.profilePicture);
+
         alert('Informations mises à jour avec succès !');
     };
 
@@ -49,14 +66,16 @@ const ProfilePage = () => {
                     className="profile-picture"
                 />
                 <div className="profile-details">
-                    <p><strong>Nom :</strong> 
+                    <p>
+                        <strong>Nom :</strong> 
                         <input 
                             type="text" 
                             value={name} 
                             onChange={(e) => setName(e.target.value)} 
                         />
                     </p>
-                    <p><strong>Email :</strong> 
+                    <p>
+                        <strong>Email :</strong> 
                         <input 
                             type="email" 
                             value={email} 
